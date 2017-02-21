@@ -2,6 +2,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import {MessageListComponent} from "./message-list/message-list.component";
 import {MessageItemComponent} from "./message-item/message-item.component";
+import {MessageInputComponent} from "./message-input/message-input.component";
 
 describe('AppComponent', () => {
   beforeEach(() => {
@@ -9,7 +10,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         MessageListComponent,
-        MessageItemComponent
+        MessageItemComponent,
+        MessageInputComponent
       ],
     });
     TestBed.compileComponents();
