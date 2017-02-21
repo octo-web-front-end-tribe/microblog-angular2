@@ -11,6 +11,7 @@ import { MessageContainerComponent } from './message-container/message-container
 import { AppRoutingModule } from "./app-routing.module";
 import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MessageContainerComponent,
     AboutComponent,
     NotFoundComponent,
+    NavigationBarComponent,
   ],
   imports: [
     BrowserModule,

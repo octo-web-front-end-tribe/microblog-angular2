@@ -6,6 +6,7 @@ import { MessageInputComponent } from "./message-input/message-input.component";
 import { MessageContainerComponent } from "./message-container/message-container.component";
 
 import { RouterTestingModule } from '@angular/router/testing';
+import {NavigationBarComponent} from "./navigation-bar/navigation-bar.component";
 
 describe('AppComponent', () => {
   beforeEach(() => {
@@ -15,7 +16,8 @@ describe('AppComponent', () => {
         MessageListComponent,
         MessageItemComponent,
         MessageInputComponent,
-        MessageContainerComponent
+        MessageContainerComponent,
+        NavigationBarComponent
       ],
       imports: [ RouterTestingModule ]
     });
