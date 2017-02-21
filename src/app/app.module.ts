@@ -10,6 +10,7 @@ import { MessageInputComponent } from './message-input/message-input.component';
 import { MessageContainerComponent } from './message-container/message-container.component';
 import { AppRoutingModule } from "./app-routing.module";
 import { AboutComponent } from './about/about.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AboutComponent } from './about/about.component';
     MessageInputComponent,
     MessageContainerComponent,
     AboutComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
