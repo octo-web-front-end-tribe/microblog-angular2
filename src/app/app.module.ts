@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MessageListComponent } from './message-list/message-list.component';
 import { MessageItemComponent } from './message-item/message-item.component';
 import { MessageInputComponent } from './message-input/message-input.component';
+import { MessageContainerComponent } from './message-container/message-container.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { MessageInputComponent } from './message-input/message-input.component';
     MessageListComponent,
     MessageItemComponent,
     MessageInputComponent,
+    MessageContainerComponent,
   ],
   imports: [
     BrowserModule,

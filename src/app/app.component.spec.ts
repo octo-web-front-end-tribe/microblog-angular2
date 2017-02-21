@@ -3,6 +3,7 @@ import { AppComponent } from './app.component';
 import {MessageListComponent} from "./message-list/message-list.component";
 import {MessageItemComponent} from "./message-item/message-item.component";
 import {MessageInputComponent} from "./message-input/message-input.component";
+import {MessageContainerComponent} from "./message-container/message-container.component";
 
 describe('AppComponent', () => {
   beforeEach(() => {
@@ -11,7 +12,8 @@ describe('AppComponent', () => {
         AppComponent,
         MessageListComponent,
         MessageItemComponent,
-        MessageInputComponent
+        MessageInputComponent,
+        MessageContainerComponent
       ],
     });
     TestBed.compileComponents();
