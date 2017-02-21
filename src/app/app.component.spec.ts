@@ -1,9 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import {MessageListComponent} from "./message-list/message-list.component";
-import {MessageItemComponent} from "./message-item/message-item.component";
-import {MessageInputComponent} from "./message-input/message-input.component";
-import {MessageContainerComponent} from "./message-container/message-container.component";
+import { MessageListComponent } from "./message-list/message-list.component";
+import { MessageItemComponent } from "./message-item/message-item.component";
+import { MessageInputComponent } from "./message-input/message-input.component";
+import { MessageContainerComponent } from "./message-container/message-container.component";
+
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
   beforeEach(() => {
@@ -15,6 +17,7 @@ describe('AppComponent', () => {
         MessageInputComponent,
         MessageContainerComponent
       ],
+      imports: [ RouterTestingModule ]
     });
     TestBed.compileComponents();
   });

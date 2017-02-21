@@ -8,6 +8,8 @@ import { MessageListComponent } from './message-list/message-list.component';
 import { MessageItemComponent } from './message-item/message-item.component';
 import { MessageInputComponent } from './message-input/message-input.component';
 import { MessageContainerComponent } from './message-container/message-container.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { MessageContainerComponent } from './message-container/message-container
     MessageItemComponent,
     MessageInputComponent,
     MessageContainerComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
