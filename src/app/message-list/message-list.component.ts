@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Message} from "../models/message";
 
 @Component({
   selector: 'message-list',
@@ -7,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageListComponent implements OnInit {
 
-  messages = [
-    'message 1',
-    'message 2',
-    'message 3'
+  messages:Message[] = [
+    {id: 1, author: 'flm', content: 'message 1'},
+    {id: 2, author: 'flm', content: 'message 2'},
+    {id: 3, author: 'flm', content: 'message 3'}
   ];
 
   ngOnInit() {

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MessageListComponent } from './message-list.component';
+import {MessageItemComponent} from "../message-item/message-item.component";
 
 describe('MessageListComponent', () => {
   let component: MessageListComponent;
@@ -8,7 +9,10 @@ describe('MessageListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MessageListComponent ]
+      declarations: [
+        MessageListComponent,
+        MessageItemComponent
+      ]
     })
     .compileComponents();
   }));
@@ -27,9 +31,9 @@ describe('MessageListComponent', () => {
     const fixture = TestBed.createComponent(MessageListComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.messages).toEqual([
-      'message 1',
-      'message 2',
-      'message 3'
+      {id: 1, author: 'flm', content: 'message 1'},
+      {id: 2, author: 'flm', content: 'message 2'},
+      {id: 3, author: 'flm', content: 'message 3'},
     ]);
   }));
 

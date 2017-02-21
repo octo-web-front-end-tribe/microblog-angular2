@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MessageListComponent } from './message-list/message-list.component';
+import { MessageItemComponent } from './message-item/message-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MessageListComponent
+    MessageListComponent,
+    MessageItemComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,15 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import {MessageListComponent} from "./message-list/message-list.component";
+import {MessageItemComponent} from "./message-item/message-item.component";
 
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        MessageListComponent
+        MessageListComponent,
+        MessageItemComponent
       ],
     });
     TestBed.compileComponents();
