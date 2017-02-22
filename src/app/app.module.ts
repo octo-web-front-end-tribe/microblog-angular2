@@ -12,6 +12,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import {MessageService} from "./services/message.service";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

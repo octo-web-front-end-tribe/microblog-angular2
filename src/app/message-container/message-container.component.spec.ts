@@ -4,6 +4,7 @@ import { MessageContainerComponent } from './message-container.component';
 import {MessageInputComponent} from "../message-input/message-input.component";
 import {MessageListComponent} from "../message-list/message-list.component";
 import {MessageItemComponent} from "../message-item/message-item.component";
+import {MessageService} from "../services/message.service";
 
 describe('MessageContainerComponent', () => {
   let component: MessageContainerComponent;
@@ -16,7 +17,8 @@ describe('MessageContainerComponent', () => {
         MessageInputComponent,
         MessageListComponent,
         MessageItemComponent
-      ]
+      ],
+      providers: [MessageService]
     })
     .compileComponents();
   }));
