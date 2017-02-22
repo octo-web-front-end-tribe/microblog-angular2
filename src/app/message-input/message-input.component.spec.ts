@@ -1,14 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MessageInputComponent } from './message-input.component';
+import {MessageService} from "../services/message.service";
 
 describe('MessageInputComponent', () => {
   let component: MessageInputComponent;
   let fixture: ComponentFixture<MessageInputComponent>;
 
   beforeEach(async(() => {
+    let messageServiceStub = {
+      createMessage()  {
+        return Promise.resolve();
+      }
+    };
+    
     TestBed.configureTestingModule({
-      declarations: [ MessageInputComponent ]
+      declarations: [ MessageInputComponent ],
+      providers: [{provide: MessageService, useValue: messageServiceStub}]
     })
     .compileComponents();
   }));

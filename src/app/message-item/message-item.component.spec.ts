@@ -17,7 +17,7 @@ describe('MessageItemComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MessageItemComponent);
     component = fixture.componentInstance;
-    component.message = new Message(42, 'flm', 'message content');
+    component.message = {id: 42, author: 'flm', content: 'message content'};
     fixture.detectChanges();
   });
 
