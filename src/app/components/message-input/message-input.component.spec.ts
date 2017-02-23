@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MessageInputComponent } from './message-input.component';
-import {MessageService} from "../services/message.service";
+import {MessageService} from '../../services/message.service';
 
 describe('MessageInputComponent', () => {
   let component: MessageInputComponent;

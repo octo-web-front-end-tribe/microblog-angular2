@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {MessageContainerComponent} from "./message-container/message-container.component";
-import {AboutComponent} from "./about/about.component";
-import {NotFoundComponent} from "./not-found/not-found.component";
+import {MessageContainerComponent} from './components/message-container/message-container.component';
+import {AboutComponent} from './components/about/about.component';
+import {NotFoundComponent} from './components/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '',  component: MessageContainerComponent },

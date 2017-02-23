@@ -4,15 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { MessageListComponent } from './message-list/message-list.component';
-import { MessageItemComponent } from './message-item/message-item.component';
-import { MessageInputComponent } from './message-input/message-input.component';
-import { MessageContainerComponent } from './message-container/message-container.component';
-import { AppRoutingModule } from "./app-routing.module";
-import { AboutComponent } from './about/about.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
-import {MessageService} from "./services/message.service";
+import { MessageListComponent } from './components/message-list/message-list.component';
+import { MessageItemComponent } from './components/message-item/message-item.component';
+import { MessageInputComponent } from './components/message-input/message-input.component';
+import { MessageContainerComponent } from './components/message-container/message-container.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AboutComponent } from './components/about/about.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import { MessageService } from './services/message.service';
 
 @NgModule({
   declarations: [

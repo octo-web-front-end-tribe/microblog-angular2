@@ -1,12 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
-import { MessageListComponent } from "./message-list/message-list.component";
-import { MessageItemComponent } from "./message-item/message-item.component";
-import { MessageInputComponent } from "./message-input/message-input.component";
-import { MessageContainerComponent } from "./message-container/message-container.component";
-
 import { RouterTestingModule } from '@angular/router/testing';
-import {NavigationBarComponent} from "./navigation-bar/navigation-bar.component";
+import { AppComponent } from './app.component';
+import { MessageListComponent } from './components/message-list/message-list.component';
+import { MessageItemComponent } from './components/message-item/message-item.component';
+import { MessageInputComponent } from './components/message-input/message-input.component';
+import { MessageContainerComponent } from './components/message-container/message-container.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
 describe('AppComponent', () => {
   beforeEach(() => {

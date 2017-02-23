@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MessageContainerComponent } from './message-container.component';
-import {MessageInputComponent} from "../message-input/message-input.component";
-import {MessageListComponent} from "../message-list/message-list.component";
-import {MessageItemComponent} from "../message-item/message-item.component";
-import {MessageService} from "../services/message.service";
+import {MessageInputComponent} from '../message-input/message-input.component';
+import {MessageListComponent} from '../message-list/message-list.component';
+import {MessageItemComponent} from '../message-item/message-item.component';
+import {MessageService} from '../../services/message.service';
 
 describe('MessageContainerComponent', () => {
   let component: MessageContainerComponent;

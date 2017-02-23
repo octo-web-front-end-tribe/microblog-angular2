@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MessageListComponent } from './message-list.component';
 import { MessageItemComponent } from "../message-item/message-item.component";
 import {MessageInputComponent} from "../message-input/message-input.component";
-import {MessageService} from "../services/message.service";
+import {MessageService} from '../../services/message.service';
 
 describe('MessageListComponent', () => {
   let component: MessageListComponent;
