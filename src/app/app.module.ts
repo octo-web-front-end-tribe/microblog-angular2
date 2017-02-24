@@ -15,6 +15,7 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { MessageService } from './services/message.service';
 import { LoginComponent } from './components/login/login.component';
 import {AuthenticationService} from "./services/authentication.service";
+import {AuthGuardService} from "./services/auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import {AuthenticationService} from "./services/authentication.service";
     HttpModule,
     AppRoutingModule
   ],
-  providers: [MessageService, AuthenticationService],
+  providers: [MessageService, AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
