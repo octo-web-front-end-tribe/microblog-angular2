@@ -13,6 +13,8 @@ import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { MessageService } from './services/message.service';
+import { LoginComponent } from './components/login/login.component';
+import {AuthenticationService} from "./services/authentication.service";
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { MessageService } from './services/message.service';
     AboutComponent,
     NotFoundComponent,
     NavigationBarComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import { MessageService } from './services/message.service';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [MessageService],
+  providers: [MessageService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
