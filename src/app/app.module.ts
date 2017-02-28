@@ -16,6 +16,7 @@ import { MessageService } from './services/message.service';
 import { LoginComponent } from './components/login/login.component';
 import {AuthenticationService} from "./services/authentication.service";
 import { LocalStorageModule } from 'angular-2-local-storage';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { LocalStorageModule } from 'angular-2-local-storage';
     NotFoundComponent,
     NavigationBarComponent,
     LoginComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
