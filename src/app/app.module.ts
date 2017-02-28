@@ -17,6 +17,7 @@ import { LoginComponent } from './components/login/login.component';
 import {AuthenticationService} from "./services/authentication.service";
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { ProtectedDirective } from './directives/protected.directive';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     NavigationBarComponent,
     LoginComponent,
     LoginFormComponent,
+    ProtectedDirective,
   ],
   imports: [
     BrowserModule,
