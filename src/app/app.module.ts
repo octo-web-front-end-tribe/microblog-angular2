@@ -15,7 +15,7 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { MessageService } from './services/message.service';
 import { LoginComponent } from './components/login/login.component';
 import {AuthenticationService} from "./services/authentication.service";
-import {AuthGuardService} from "./services/auth-guard.service";
+import { LocalStorageModule } from 'angular-2-local-storage';
 
 @NgModule({
   declarations: [
@@ -33,9 +33,13 @@ import {AuthGuardService} from "./services/auth-guard.service";
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LocalStorageModule.withConfig({
+      prefix: 'app-root',
+      storageType: 'localStorage'
+    })
   ],
-  providers: [MessageService, AuthenticationService, AuthGuardService],
+  providers: [MessageService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

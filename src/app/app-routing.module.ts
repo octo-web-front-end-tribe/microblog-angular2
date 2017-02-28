@@ -4,10 +4,9 @@ import {MessageContainerComponent} from './components/message-container/message-
 import {AboutComponent} from './components/about/about.component';
 import {LoginComponent} from './components/login/login.component';
 import {NotFoundComponent} from './components/not-found/not-found.component';
-import {AuthGuardService} from "./services/auth-guard.service";
 
 const routes: Routes = [
-  { path: '',  component: MessageContainerComponent, canActivate: [AuthGuardService] },
+  { path: '',  component: MessageContainerComponent },
   { path: 'about',  component: AboutComponent },
   { path: 'login',  component: LoginComponent },
   { path: '404', component: NotFoundComponent },

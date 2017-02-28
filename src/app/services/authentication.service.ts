@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
+import { LocalStorageService } from 'angular-2-local-storage';
 
 @Injectable()
 export class AuthenticationService {
-  redirectUrl : string;
 
-  login(username : string) : void {
-    localStorage.setItem("user", username);
+  constructor(private localStorageService: LocalStorageService) { }
+
+  login(login: string): void {
+    this.localStorageService.set('user', login);
+  }
+
+  getUser(): any {
+    return this.localStorageService.get('user');
   }
 
   isLoggedIn() : boolean {
