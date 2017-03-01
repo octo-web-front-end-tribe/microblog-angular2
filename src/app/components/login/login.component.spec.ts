@@ -3,19 +3,29 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoginComponent } from './login.component.ts';
 import {LoginFormComponent} from "../login-form/login-form.component";
 import { AuthenticationService } from '../../services/authentication.service';
+import {RouterTestingModule} from "@angular/router/testing/router_testing_module";
+import {Router} from "@angular/router";
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
+  let authenticationService;
+  
 
   beforeEach(async(() => {
+    authenticationService = {
+      isLoggedIn() {}
+    }
 
     TestBed.configureTestingModule({
-      declarations: [ 
+      declarations: [
         LoginComponent,
         LoginFormComponent
       ],
-      providers: [{provide: AuthenticationService, useValue: {}}]
+      providers: [
+        {provide: AuthenticationService, useValue: authenticationService},
+        {provide: Router, useValue: {}}
+      ]
     })
     .compileComponents();
   }));
