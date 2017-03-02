@@ -1,37 +1,62 @@
 import { TestBed, inject, async } from '@angular/core/testing';
 import { MessageService } from './message.service';
+import {Http} from "@angular/http";
 
 describe('MessageService', () => {
+  
+  let httpStub;
+  
   beforeEach(() => {
+    httpStub = {
+      get: () => {
+        return {
+          toPromise: () => Promise.resolve({ json: () => [{id: 1, content: 'fake content', author: 'fhi'}]})
+        }
+      },
+      post: () => {
+        return {
+          toPromise: () => Promise.resolve({ json: () => {
+            return {id: 1, content: 'hello world', author: 'abc'}
+          }})
+        }
+      }
+    }
     TestBed.configureTestingModule({
-      providers: [MessageService]
+      providers: [
+        MessageService,
+        {provide: Http, useValue: httpStub}
+      ]
     });
   });
 
   it('should inject message service', inject([MessageService], (service: MessageService) => {
     expect(service).toBeTruthy();
   }));
-
-  it('should have messages property set with default value', inject([MessageService], (service: MessageService) => {
-    expect(service.messages).toEqual([
-      {id: 1, author: 'flm', content: 'message 1'},
-      {id: 2, author: 'flm', content: 'message 2'},
-      {id: 3, author: 'flm', content: 'message 3'}
-    ]);
+  
+  it('should have messageUrl property set', inject([MessageService], (service: MessageService) => {
+    expect(service.messagesUrl).toEqual('http://microblog-api.herokuapp.com/api/messages');
   }));
 
-  it('should return messages property content called getMessages()', inject([MessageService], (service: MessageService) => {
-    service.messages = [{id: 42, author: 'jbu', content: 'fake content'}];
-    service.getMessages().then((messages) => {
-      expect(messages).toEqual([{id: 42, author: 'jbu', content: 'fake content'}])
-    });
+  it('should set messages array to empty by default', inject([MessageService], (service: MessageService) => {
+    expect(service.messages).toEqual([]);
   }));
 
-  it('should add new message into messages array', inject([MessageService], (service: MessageService) => {
-    service.messages = [];
-    service.createMessage({id: 42, author: 'jbu', content: 'fake content'}).then(() => {
-      expect(service.messages).toEqual([{id: 42, author: 'jbu', content: 'fake content'}])
-    });
+  it('#getMessages should fetch messages and set `messages` property', inject([MessageService], (service: MessageService) => {
+    service.getMessages().then(response => {
+      expect(service.messages).toEqual([{id: 1, content: 'fake content', author: 'fhi'}]);
+      expect(response).toEqual([{id: 1, content: 'fake content', author: 'fhi'}]);
+    })
+  }));
+
+  it('#createMessage should post new message and add it to `messages` property', inject([MessageService], (service: MessageService) => {
+    const spy = spyOn(httpStub, 'post');
+    
+    let message = {content: 'hello world', author: 'abc'};
+    
+    service.createMessage(message).then(() => {
+      expect(spy).toHaveBeenCalledWith(message);
+      expect(service.messages).toContain([{id: 1, content: 'hello world', author: '42'}]);
+    })
   }));
 
 });

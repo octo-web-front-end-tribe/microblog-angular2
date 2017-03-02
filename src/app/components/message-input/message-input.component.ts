@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MessageService} from '../../services/message.service';
+import {AuthenticationService} from "../../services/authentication.service";
 
 @Component({
   selector: 'message-input',
@@ -8,15 +9,14 @@ import {MessageService} from '../../services/message.service';
 })
 export class MessageInputComponent implements OnInit {
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService, private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
   }
 
   addMessage(content) {
     this.messageService.createMessage({
-      id: 42,
-      author: 'toto',
+      author: this.authenticationService.getUser(),
       content: content.value
     });
 

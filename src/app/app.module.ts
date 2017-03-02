@@ -34,6 +34,7 @@ import { ProtectedDirective } from './directives/protected.directive';
     ProtectedDirective,
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     FormsModule,
     HttpModule,

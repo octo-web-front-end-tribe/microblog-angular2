@@ -1,22 +1,32 @@
 import { Injectable } from '@angular/core';
 import {Message} from "../models/message";
+import {Http} from "@angular/http";
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class MessageService {
 
-  messages:Message[] = [
-    {id: 1, author: 'flm', content: 'message 1'},
-    {id: 2, author: 'flm', content: 'message 2'},
-    {id: 3, author: 'flm', content: 'message 3'}
-  ];
+  messagesUrl = 'http://microblog-api.herokuapp.com/api/messages';
+
+  messages:Message[] = [];
+
+  constructor (private http: Http) {}
 
   getMessages(): Promise<Message[]> {
-    return Promise.resolve(this.messages);
+    return this.http.get(this.messagesUrl)
+                    .toPromise()
+                    .then(response => {
+                      this.messages = response.json();
+                      return this.messages;
+                    });
   }
 
-  createMessage(message: Message): Promise<any> {
-    this.messages.push(message);
-    return Promise.resolve();
+  createMessage(message): Promise<any> {
+    return this.http.post(this.messagesUrl, message)
+                    .toPromise()
+                    .then(response => {
+                      this.messages.push(response.json());
+                    });
   }
 
 }

@@ -5,12 +5,18 @@ import {MessageInputComponent} from '../message-input/message-input.component';
 import {MessageListComponent} from '../message-list/message-list.component';
 import {MessageItemComponent} from '../message-item/message-item.component';
 import {MessageService} from '../../services/message.service';
+import {AuthenticationService} from "../../services/authentication.service";
 
 describe('MessageContainerComponent', () => {
   let component: MessageContainerComponent;
   let fixture: ComponentFixture<MessageContainerComponent>;
+  let messageServiceStub;
 
   beforeEach(async(() => {
+    messageServiceStub = {
+      getMessages() { return Promise.resolve() }
+    };
+    
     TestBed.configureTestingModule({
       declarations: [
         MessageContainerComponent,
@@ -18,9 +24,11 @@ describe('MessageContainerComponent', () => {
         MessageListComponent,
         MessageItemComponent
       ],
-      providers: [MessageService]
-    })
-    .compileComponents();
+      providers: [
+        {provide: MessageService, useValue: messageServiceStub},
+        {provide: AuthenticationService, useValue: {}}
+      ],
+    });
   }));
 
   beforeEach(() => {
