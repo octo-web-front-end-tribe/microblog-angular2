@@ -24,4 +24,8 @@ export class AuthenticationService {
     return !!(this.localStorageService.get('user'));
   }
 
+  logout(): void {
+    this.localStorageService.remove('user');
+  }
+
 }

@@ -6,19 +6,21 @@ import { MessageItemComponent } from './components/message-item/message-item.com
 import { MessageInputComponent } from './components/message-input/message-input.component';
 import { MessageContainerComponent } from './components/message-container/message-container.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import {AuthenticationService} from "./services/authentication.service";
+import {LocalStorageService} from "angular-2-local-storage/dist/index";
 
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        MessageListComponent,
-        MessageItemComponent,
-        MessageInputComponent,
-        MessageContainerComponent,
         NavigationBarComponent
       ],
-      imports: [ RouterTestingModule ]
+      imports: [ RouterTestingModule ],
+      providers: [
+        {provide: AuthenticationService, useValue: {}},
+        {provide: LocalStorageService, useValue: {}}
+      ]
     });
     TestBed.compileComponents();
   });
@@ -27,11 +29,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  }));
-
-  it(`should have as title 'app works!'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app works!');
   }));
 });

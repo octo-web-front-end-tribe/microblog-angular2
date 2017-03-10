@@ -10,7 +10,8 @@ describe('AuthenticationService', () => {
   beforeEach(() => {
     localStorageServiceStub = {
       set(){},
-      get(){}
+      get(){},
+      remove(){}
     };
     TestBed.configureTestingModule({
       imports: [
@@ -27,6 +28,12 @@ describe('AuthenticationService', () => {
     expect(service).toBeTruthy();
   }));
 
+  it('#logout should delete user on localStorage', inject([AuthenticationService, LocalStorageService],
+    (service:AuthenticationService, localStorage:LocalStorageService) => {
+      spyOn(localStorage, 'remove');
+      service.logout();
+      expect(localStorage.remove).toHaveBeenCalledWith('user')
+  }));
 
   xit('#login should set user value into localStorage', inject([AuthenticationService], (service:AuthenticationService) => {
     const spy = spyOn(localStorageServiceStub, 'set');
