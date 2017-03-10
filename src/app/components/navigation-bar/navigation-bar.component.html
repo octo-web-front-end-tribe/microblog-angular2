@@ -18,9 +18,9 @@
             <span class="navigation-bar__link-label">À propos</span>
           </a>
         </li>
-        <li class="navigation-bar__li" (click)="logout()">
+        <li *ngIf="isLoggedIn()" id="navigation-bar__logout" class="navigation-bar__li" (click)="logout()">
           <a class="navigation-bar__link">
-            <i aria-hidden="true"  class="navigation-bar__link-icon"></i>
+            <i aria-hidden="true"  class="navigation-bar__link-icon fa fa-power-off ember-view"></i>
             <span class="navigation-bar__link-label">Logout</span>
           </a>
         </li>
