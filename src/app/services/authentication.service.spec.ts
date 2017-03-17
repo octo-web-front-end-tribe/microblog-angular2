@@ -35,25 +35,28 @@ describe('AuthenticationService', () => {
       expect(localStorage.remove).toHaveBeenCalledWith('user')
   }));
 
-  xit('#login should set user value into localStorage', inject([AuthenticationService], (service:AuthenticationService) => {
-    const spy = spyOn(localStorageServiceStub, 'set');
+  it('#login should set user value into localStorage', inject([AuthenticationService, LocalStorageService],
+    (service:AuthenticationService, localStorage:LocalStorageService) => {
+    spyOn(localStorage, 'set');
     service.login('abc');
-    expect(spy).toHaveBeenCalledWith('user', 'abc');
+    expect(localStorage.set).toHaveBeenCalledWith('user', 'abc');
   }));
 
-  xit('#getUser should set user value into localStorage', inject([AuthenticationService], (service:AuthenticationService) => {
-    const spy = spyOn(localStorageServiceStub, 'get').and.returnValue('abc');
+  it('#getUser should set user value into localStorage', inject([AuthenticationService, LocalStorageService],
+    (service:AuthenticationService, localStorage:LocalStorageService) => {
+    spyOn(localStorage, 'get').and.returnValue('abc');
     expect(service.getUser()).toBe('abc');
-    expect(spy).toHaveBeenCalledWith('user', 'abc');
+    expect(localStorage.get).toHaveBeenCalledWith('user');
   }));
 
-  xit('#isLoggedIn should return true if user is set inside localStorage', inject([AuthenticationService], (service:AuthenticationService) => {
-    const spy = spyOn(localStorageServiceStub, 'get').and.returnValue('abc');
+  it('#isLoggedIn should return true if user is set inside localStorage', inject([AuthenticationService, LocalStorageService],
+    (service:AuthenticationService, localStorage:LocalStorageService) => {
+    spyOn(localStorage, 'get').and.returnValue('abc');
     expect(service.isLoggedIn()).toBe(true);
   }));
 
-  xit('#isLoggedIn should return false if user is not set inside localStorage', inject([AuthenticationService], (service:AuthenticationService) => {
-    const spy = spyOn(localStorageServiceStub, 'get').and.returnValue(undefined);
+  it('#isLoggedIn should return false if user is not set inside localStorage', inject([AuthenticationService], (service:AuthenticationService) => {
+    spyOn(localStorageServiceStub, 'get').and.returnValue(undefined);
     expect(service.isLoggedIn()).toBe(false);
   }));
 

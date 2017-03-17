@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Message} from "../models/message";
 import {Http} from "@angular/http";
 import 'rxjs/add/operator/toPromise';
@@ -10,23 +10,24 @@ export class MessageService {
 
   messages:Message[] = [];
 
-  constructor (private http: Http) {}
-
-  getMessages(): Promise<Message[]> {
-    return this.http.get(this.messagesUrl)
-                    .toPromise()
-                    .then(response => {
-                      this.messages = response.json();
-                      return this.messages;
-                    });
+  constructor(private http:Http) {
   }
 
-  createMessage(message): Promise<any> {
+  getMessages():Promise<Message[]> {
+    return this.http.get(this.messagesUrl)
+      .toPromise()
+      .then(response => {
+        this.messages = response.json();
+        return this.messages;
+      });
+  }
+
+  createMessage(message):Promise<any> {
     return this.http.post(this.messagesUrl, message)
-                    .toPromise()
-                    .then(response => {
-                      this.messages.push(response.json());
-                    });
+      .toPromise()
+      .then(response => {
+        this.messages.push(response.json());
+      });
   }
 
 }

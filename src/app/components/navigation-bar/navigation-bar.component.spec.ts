@@ -59,7 +59,6 @@ describe('NavigationBarComponent', () => {
       fixture.detectChanges();
 
       const logoutElement = fixture.debugElement.query(By.css('#navigation-bar__logout'));
-      console.log(logoutElement);
       expect(logoutElement !== null).toEqual(true);
     });
 
@@ -69,7 +68,6 @@ describe('NavigationBarComponent', () => {
       fixture.detectChanges();
 
       const logoutElement = fixture.debugElement.query(By.css('#navigation-bar__logout'));
-      console.log('Debug element', logoutElement);
       expect(logoutElement !== null).toEqual(false);
     });
 
