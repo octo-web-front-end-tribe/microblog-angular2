@@ -1,5 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { AuthenticationService } from './authentication.service.ts';
+import { AuthenticationService } from './authentication.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import {LocalStorageService} from "angular-2-local-storage/dist/index";
 import {Router} from "@angular/router";
