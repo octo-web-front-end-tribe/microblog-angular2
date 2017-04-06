@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavigationBarComponent } from './navigation-bar.component';
 import {AuthenticationService} from "../../services/authentication.service";
-import {RouterTestingModule} from "@angular/router/testing";
+import {RouterTestingModule} from "@angular/router/testing/router_testing_module";
 import {By} from "@angular/platform-browser";
 
 describe('NavigationBarComponent', () => {
